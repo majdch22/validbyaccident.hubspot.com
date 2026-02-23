@@ -6,7 +6,7 @@ window.addEventListener('message', (e) => {
 
   
 </script>
-<iframe id="target" src="https://business.1inch.com/portal/verification"></iframe>
+<iframe id="target" src="https://dashboard.alchemy.com/apps"></iframe>
 <script>
   const frame = document.getElementById('target').contentWindow;
   frame.postMessage({ action: 'doSomething', data: 'test' }, '*');
