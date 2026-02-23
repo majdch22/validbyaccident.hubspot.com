@@ -1,1 +1,13 @@
-index.html
+<script>
+window.postMessage({
+  type: 'SHOW_Z2_WIDGET_MESSAGE_TYPE',
+  params: {
+    options: {
+      widgetInput1: '<img src=x onerror=console.log("XSS")>',
+      widgetInput2: 'javascript:alert(1)',
+      specificIntent: 'test',
+      inProduct: true
+    }
+  }
+}, '*');
+</script>
